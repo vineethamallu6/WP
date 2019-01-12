@@ -1,17 +1,17 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title><br>Learn by Doing</title>
+        <title>Learn by Doing</title>
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
         <style>
-            .r {
+            /* .r {
                 width :0;
                 height :0;
                 border-bottom: 20px solid transparent;
                 border-top-color: 20px solid transparent;
                 border-left: 20px solid blue;
 
-            }
+            } */
             .Learning {
 		border: 25px solid lightblue;
 		margin-top: 25px;
@@ -24,10 +24,19 @@
 		border-bottom: 20px solid transparent;
 		border-left: 20px solid white; 
         }
+        
 
         </style>
         <body>
-                <div class="arrow" style="text-align: right;height:40px;display: flex">
+                <script>
+                       var question = { "text" : "Each Computer has a built-in instruction set that it knows how to execute by design.", 
+                        "choices" : ["true","false"],
+                        "hint" : "Recall that we use the term computation to mean the execution of a sequence of instructions by a computer with the intention of solving a given problem "
+                        }
+                        var obj1 = JSON.parse(question);
+                        document.getElementById("hint1").innerHtml =obj1.text;
+                </script>
+                <!-- <div class="arrow" style="text-align: right;height:40px;display: flex">
                         <div style="background-color: blue;width: 40px">
                         </div>
                         <div class="right">
@@ -39,11 +48,11 @@
                         </div>
                         <div style="background-color: blue;width: 120%">
                         </div>
-                    </div>
+                    </div> -->
                     <div class="Learning">
-                        <br>
                 <p>1. Each Computer has a built-in instruction set that it knows how to execute by design.</p>
                 <button type="button" class="btn btn-warning">Hint</button>
+                <!-- <p id = "hint1"></p> -->
                 <div class="alert alert-warning alert-dismissible">
                         <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
                         Recall that we use the term computation to mean "the execution of a sequence of instructions by a computer with the intention of solving a given problem "
