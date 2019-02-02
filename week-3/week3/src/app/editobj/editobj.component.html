@@ -1,0 +1,25 @@
+<div class = "container">
+    <form #desForm = "ngForm" (ngSubmit) = "saveDes(desForm)">
+      <div class = "panel panel-primary">
+        <div class = "panel-heading">
+          <h3 class = "panel-title">Add a new product</h3>
+        </div>
+        <div class = "panel-body">
+          <div class = "form-group">
+            <label for= "title">Title:</label>
+            <input  name = "title" [(ngModel)] = "title" class = "form-control">
+          </div>
+          <div class = "form-group">
+            <label for = "mean">Description</label>
+            <input name = "description" [(ngModel)] = "mean" class = "form-control">
+          </div>
+          <div class = "form-group">
+              <label for = "q">Quantity</label>
+              <input  name = "q" [(ngModel)] = "q" class = "form-control">
+            </div>
+        </div>
+          <button type = "submit" class = "btn btn-primary">Submit</button>
+      </div>
+    </form>
+    {{desForm.value| json}}
+    </div>

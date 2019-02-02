@@ -1,0 +1,25 @@
+<!-- <p>
+  datalist works!
+</p> -->
+<div class = "container">
+<h3>Product Details</h3>
+<div *ngFor = 'let i of arrList;index as id'>
+  <div class = "row" >
+    <div><b>Title : {{i.title}}</b></div>
+    <div><b>Description : </b>{{i.description}}</div>
+    <div><b>Image :</b><img src = ".\assets\{{i.image}}" style = "width: 100px;height: 150px;"></div>
+    <div><b>Quantity : </b> {{i.quantity}}</div>
+    <div class = "row">
+        <button (click)="del(id)">Delete</button>
+    </div>
+    <div class = "row">
+      <button (click) = "edit()">Edit</button>
+    </div>
+    <div class = "row">
+        <app-editobj *ngIf = "editData"></app-editobj>
+    </div>
+    <br>
+    <br>
+  </div>
+  </div>
+</div>
