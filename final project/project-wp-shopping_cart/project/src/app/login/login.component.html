@@ -1,0 +1,75 @@
+<!-- <form (ngSubmit)="onSubmit()" #form="ngForm">
+<div class="form-group">
+  <label for="email">Email/ Mobile</label>
+  <input type="text" class="form-control" id="email" required  placeholder = "email/mobile" [(ngModel)]="email" name="email">
+</div>
+
+<div class="form-group">
+  <label for="password">Password</label>
+  <input type="password" class="form-control" id="password" required  [(ngModel)]="password" name="password">
+</div>
+
+<button type="submit" class="btn btn-success" (click)="Valid()" [disabled]="!form.form.valid">Submit</button>
+</form> -->
+
+<div class = "container">
+  <div class = "row">
+    <div class = "col-xs-12">
+      <!-- <button class="btn-btn-primary-sm" data-target = "#loginmodel" data-toggle = "modal">Log In</button> -->
+      <div class = "modal" id = "loginmodel" tabindex = "-1">
+        <div class = "modal-dialog">
+          <div class = "modal-content">
+            <div class = "model-header">
+              <button class = "close" data-dismiss = "modal">&times;</button>
+              <h3 class = "modal-title" style="text-align:center;padding-top: 1%;"> &nbsp;&nbsp;Log In</h3>
+            </div>
+            <div class = "modal-body">
+              <!-- <form>
+                <div class = "form-group">
+                  <label for = "mail/mobile">Mail/ Mobile</label>
+                  <input class = "form-control" placeholder="Email/Mobilenumber" type = "text" id = "mail/mobile">
+                </div>
+                <div class = "form-group">
+                    <label for = "pass">Password</label>
+                    <input class = "form-control" placeholder="password" type = "password" id = "pass">
+                </div>
+              </form> -->
+              <form (ngSubmit)="onSubmit()" #form="ngForm">
+                <div class="form-group" [class.has-error]="email.invalid && email.touched">
+                  <label for="email" class="control-label">Email</label>
+                  <input id="email" required email type="text" class="form-control" name="email"
+                          [(ngModel)]="email1" #email="ngModel">
+                  <span class="help-block" *ngIf="email.errors?.required && email.touched">
+                    Email is required
+                  </span>
+                  <span class="help-block" *ngIf="email.errors?.email && email.touched">
+                    Email is Invalid
+                  </span>
+                </div>
+                  
+                <div class="form-group" [class.has-error]="password.invalid && password.touched">
+                  <label for="password" class="control-label">password</label>
+                  <input  required type="password" class="form-control" name="password"
+                          [(ngModel)]="password1" #password="ngModel" maxlength = "15" minlength = "8">
+                  <span class="help-block" *ngIf="password.errors?.required && password.touched">
+                    password is required
+                  </span>
+                  
+                </div>
+              <button  type = "submit" class = "btn btn-success" [disabled]="!form.form.valid" (click)="signin()" >Sign In</button>&nbsp;&nbsp;
+              <button class = "btn btn-success" data-dismiss="modal" href="mainpage">Close</button>
+                  <!-- <button type="submit" class="btn btn-success" (click)="Valid()" [disabled]="!form.form.valid">Submit</button> -->
+                  </form>
+            </div>
+            <!-- <div class = "model-footer" style = "padding: 2%;text-align:center">
+              <button (click) = "Valid()" class = "btn btn-success">Sign In</button>&nbsp;&nbsp;
+              <button class = "btn btn-success" data-dismiss="modal">Close</button>
+            </div> -->
+
+            <!-- <div *ngIf=this.serviceData.loginsucesssymbol><h1>login  success</h1></div> -->
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

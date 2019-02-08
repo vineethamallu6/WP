@@ -1,0 +1,108 @@
+<div class = "container">
+  <div class = "row">
+    <div class = "col-xs-12">
+      <div class = "modal" id = "loginmodel" tabindex = "-1">
+        <div class = "modal-dialog">
+          <div class = "modal-content">
+            <div class = "model-header">
+              <button class = "close" data-dismiss = "modal">&times;</button>
+              <h4 class = "modal-title"> &nbsp;&nbsp;Register</h4>
+            </div>
+            <div >
+                   <form (ngSubmit) = "onSubmit()" #form = "ngForm"> 
+                    <!-- <form method="POST"> -->
+                      <div class="form-group" [class.has-error]="email.invalid && email.touched">
+                        <label for="email" class="control-label">Email</label>
+                        <input id="email" required email type="text" class="form-control" name="email"
+                                [(ngModel)]="email1" #email="ngModel">
+                        <span class="help-block" *ngIf="email.errors?.required && email.touched">
+                          Email is required
+                        </span>
+                        <span class="help-block" *ngIf="email.errors?.email && email.touched">
+                          Email is Invalid
+                        </span>
+                      </div>
+                
+                
+                      <div class="form-group"  [class.has-error]="number.invalid && number.touched">
+                        <label for="number" class="control-label">Mobile.No</label>
+                        <input id="mob" required pattern=[0-9]{10} type="number" class="form-control" name="number"
+                                [(ngModel)]="number1" #number="ngModel" ng-maxlength = "10" ng-minlength = "10">
+                        <span class="help-block" *ngIf="number.errors?.required && number.touched">
+                          Mobile number is required
+                        </span>
+                        <span class="help-block" *ngIf="number.errors?.number && number.touched">
+                          Mobile number is Invalid
+                        </span>
+                      </div>
+                  
+                
+                
+                      <div class="form-group" [class.has-error]="password.invalid && password.touched">
+                        <label for="password" class="control-label">password</label>
+                        <input  required type="password" class="form-control" name="password"
+                                [(ngModel)]="password1" #password="ngModel" maxlength = "15" minlength = "8">
+                        <span class="help-block" *ngIf="password.errors?.required && password.touched">
+                          password is required
+                        </span>
+                        
+                      </div>
+                  
+                
+             
+            
+            <div class = "model-footer" style = "padding: 2%;">
+              <!-- <button class = "btn-btn-primary">Submit</button>&nbsp;&nbsp; -->
+              <button type = "submit" [disabled]="!form.form.valid" class = "btn btn-success" [disabled]="!form.form.valid" (click)="register()">Sign up</button>&nbsp;&nbsp;
+              <button class = "btn btn-success" data-dismiss="modal">Close</button>
+
+              <!-- <button class = "btn-btn-primary" data-dismiss="modal">Close</button> -->
+            </div> 
+            </form>  
+                
+          </div>
+        </div>
+      </div>
+    </div>
+</div>
+
+</div>
+</div>
+
+
+  <!-- <div >
+      <form method="POST">
+      <div class = "form-group" [class.has-error] = "email.invalid && email.touched">
+  <label for = "email" class = "control-label">Email</label>
+  <input id = "email" required pattern = "^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$" 
+   placeholder="User mail" type = "email"  
+    name="email" class = "form-control" [(ngModel)]="email"><br>
+  <span class = "help-block" *ngIf = "email.has-errors?.required && email.touched">Email is required.</span>
+  <span class = "help-block" *ngIf = "email.has-errors?.pattern && email.touched">Email is invalid.</span>              
+ </div>
+
+
+  <label for = "mobile">Mobile.No</label>
+  <input  placeholder="mobile" type = "number" id = "mobile" ng-maxlength="10" ng-minlength="10" [(ngModel)]="mobile" required name="phno"><br>
+
+
+    <label for = "password">Password</label>
+    <input  placeholder="password" type = "password" id = "password" [(ngModel)]="password" required name="pwd">
+    </form>
+
+
+<div class = "model-footer" style = "padding: 2%;">
+<button class = "btn-btn-primary">Submit</button>&nbsp;&nbsp;
+<button type = "submit" onclick="location.href='mainpage.html'" (click) = "register()" class = "btn btn-success" [disabled]="!form.form.valid">Sign up</button>&nbsp;&nbsp;
+<button class = "btn btn-success" data-dismiss="modal">Close</button>
+
+<button class = "btn-btn-primary" data-dismiss="modal">Close</button>
+</div> 
+<div class="container">
+  <form method="POST" action="">
+    username:<input type="text" [(ngModel)]="mail" name="un"><br><br>
+    phno<input type="text" [(ngModel)]="mobile" name="phno"><br><br>
+    password<input type="text" [(ngModel)]="password" name="pwd"><br><br>
+    <button (click)="register()">signup</button>
+  </form> 
+</div> -->
