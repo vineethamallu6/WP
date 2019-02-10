@@ -1,0 +1,179 @@
+<div class = "container">
+  <div class="row">
+    <div class="col-75">
+      <div class="container-fluid">
+        <!-- <form action="/action_page.php"> -->
+          <form #desForm = "ngForm" (ngSubmit) = "saveDes(desForm)">
+            <div class = "panel panel-primary">
+              <div class = "panel-heading">
+                <h1 class = "panel-title" style = "text-align: center; font-family: Arial, Helvetica, sans-serif;" >Safe  and  Secure  checkout</h1>
+              </div>
+        
+          <div class="row">
+            <div class="col-sm-6" style = "padding-left: 5%;">
+              <h3 style="font-family: 'Times New Roman', Times, serif; color: #27268f;">Billing Address</h3><br><br>
+               <!-- <div class = "row">   
+              <label for="email">Email &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
+              <input style = "padding-left: 3%;"type="text" id="email" name="email"><br><br>
+              </div> -->
+              <div class="form-group" [class.has-error]="email.invalid && email.touched">
+                <label for="email" class="control-label">Email&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
+                <input id="email" required email type="text" placeholder = "Email" class="form-control" name="email"
+                        [(ngModel)]="email1" #email="ngModel">
+                <span class="help-block" *ngIf="email.errors?.required && email.touched">
+                  Email is required
+                </span>
+                <span class="help-block" *ngIf="email.errors?.email && email.touched">
+                  Email is Invalid
+                </span>
+              </div>
+              <!-- <div class = "row"> 
+              <label for="adr">Address &nbsp;</label>
+              <input type="text" id="adr" name="address"><br><br>
+              </div> -->
+              <div class="form-group" [class.has-error]="address.invalid && address.touched">
+                <label for="address" class="control-label">Address&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
+                <input id="address" required type="text" placeholder = "Address"class="form-control" name="address"
+                        [(ngModel)]="address1" #address="ngModel">
+                <span class="help-block" *ngIf="address.errors?.required && address.touched">
+                  Address is required
+                </span>
+              </div>
+              
+              <!-- <div class = "row"> 
+              <label for="city">City &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
+              <input type="text" id="city" name="city"><br><br>
+              </div> -->
+  
+              <div class="form-group" [class.has-error]="city.invalid && city.touched">
+                <label for="city" class="control-label">City&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
+                <input id="city" required type="text" placeholder = "City"class="form-control" name="city"
+                        [(ngModel)]="city1" #city="ngModel">
+                <span class="help-block" *ngIf="city.errors?.required && city.touched">
+                  City is required
+                </span>
+              </div>
+  
+              <!-- <div class = "row"> 
+              <label for="state">State &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
+              <input type="text" id="state" name="state"><br><br>
+              </div> -->
+              <div class="form-group" [class.has-error]="state.invalid && state.touched">
+                <label for="state" class="control-label">State&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
+                <input id="state" required type="text" placeholder = "State"class="form-control" name="state"
+                        [(ngModel)]="state1" #state="ngModel">
+                <span class="help-block" *ngIf="state.errors?.required && state.touched">
+                  State is required
+                </span>
+              </div>
+  
+  
+              <!-- <div class = "row"> 
+              <label for="zip">Pincode &nbsp;&nbsp;</label>
+              <input type="text" id="zip" name="zip">
+              </div>
+            </div> -->
+            <div class="form-group" [class.has-error]="pincode.invalid && pincode.touched">
+              <label for="pincode" class="control-label">Pincode&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
+              <input id="pincode" required type="number" placeholder = "Pincode"class="form-control" name="pincode"
+                      [(ngModel)]="pincode1" #pincode="ngModel">
+              <span class="help-block" *ngIf="pincode.errors?.required && pincode.touched">
+                Pincode is required
+              </span>
+            </div>
+            </div>
+  
+            <div class="col-sm-6">
+              <h3 style="font-family: 'Times New Roman', Times, serif; color: #27268f;">Payment</h3><br>
+              <label for="fname" ><p style=" color : #27268f;">Accepted Cards</p></label>
+              <div class="icon-container">
+                <i class="fa fa-cc-visa" style="color:navy;"></i>&nbsp;
+                <i class="fa fa-cc-amex" style="color:blue;"></i>&nbsp;
+                <i class="fa fa-cc-mastercard" style="color:red;"></i>&nbsp;
+                <i class="fa fa-cc-discover" style="color:orange;"></i>&nbsp;
+              </div><br><br>
+              <!-- <div class = "row">
+              <label for="cname">Name on Card &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
+              <input type="text" id="cname" name="cardname"><br><br>
+              </div> -->
+              <div class="form-group" [class.has-error]="c.invalid && c.touched">
+                <label for="c" class="control-label">Name On Card&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
+                <input id="c" required type="text" class="form-control" name="c" placeholder="Name on card"
+                        [(ngModel)]="c1" #c="ngModel">
+                <span class="help-block" *ngIf="c.errors?.required && c.touched">
+                  Card Name is required
+                </span>
+              </div>
+              <!-- <div class = "row">
+              <label for="ccnum">Credit card number &nbsp;&nbsp;</label>
+              <input type="text" id="ccnum" name="cardnumber"><br><br>
+              </div> -->
+              <div class="form-group" [class.has-error]="cc.invalid && cc.touched">
+                <label for="cc" class="control-label">Credit Card number&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
+                <input id="cc" required type="text" class="form-control" name="cc" placeholder="Credit Card number"
+                        [(ngModel)]="cart" #cc="ngModel">
+                <span class="help-block" *ngIf="cc.errors?.required && cc.touched">
+                  Card Number is required
+                </span>
+              </div>
+              <!-- <div class = "row">
+              <label for="expmonth">Exp Month &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
+              <input type="text" id="expmonth" name="expmonth"><br><br>
+              </div> -->
+              <div class="form-group" [class.has-error]="mon.invalid && mon.touched">
+                <label for="mon" class="control-label">Exp Month&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
+                <input id="mon" required type="text" class="form-control" name="mon" placeholder="Exp month"
+                        [(ngModel)]="mon1" #mon="ngModel">
+                <span class="help-block" *ngIf="mon.errors?.required && mon.touched">
+                  Exp month is required
+                </span>
+              </div>
+              <!-- <div class = "row">
+              <label for="expyear">Exp Year &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
+              <input type="text" id="expyear" name="expyear"><br><br>
+              </div> -->
+              <div class="form-group" [class.has-error]="y.invalid && y.touched">
+                <label for="y" class="control-label">Exp Year&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
+                <input id="y" required type="text" class="form-control" name="y" placeholder="Exp Year"
+                        [(ngModel)]="y1" #y="ngModel">
+                <span class="help-block" *ngIf="y.errors?.required && y.touched">
+                  Exp Year is required
+                </span>
+              </div>
+              <!-- <div class = "row">
+              <label for="cvv">CVV &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
+              <input type="text" id="cvv" name="cvv">
+              </div> -->
+              <div class="form-group" [class.has-error]="cv.invalid && cv.touched">
+                <label for="cv" class="control-label">CVV&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
+                <input id="cv" required type="text" class="form-control" name="cv" placeholder="CVV"
+                        [(ngModel)]="cv1" #cv="ngModel">
+                <span class="help-block" *ngIf="cv.errors?.required && cv.touched">
+                  CVV is required
+                </span>
+              </div>
+              <br>
+              <br>
+            <br>
+            <br>
+            
+          </div>
+          </div>
+          
+          <div *ngIf = "checkpop">
+              <div class="modal-content">
+                  <div class="modal-body">
+                    <p>Your total price: {{totalamount}}</p>
+                  </div>
+                  <div class="modal-footer">
+                    <button type="button" class="btn btn-default" (click) = "completedmethod()" data-dismiss="modal" routerLink = "/mainpage">Finish</button>
+                </div>
+              </div>
+          </div>
+        </div>
+        </form>
+        <input type="submit" value="Continue to checkout" (click)="checkmethod()" class="btn">
+      </div>
+    </div>
+  </div>
+  </div>

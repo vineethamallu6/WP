@@ -1,0 +1,39 @@
+<div class="container">
+    <div class="row">
+      <div class="col-md-3">
+        <img src="../../assets/{{items[index].image}}">
+      </div>
+      <div class="col-md-9" style="padding-left:100px;padding-top:100px;">
+        <h1>{{items[index].title}}</h1><br><br>
+        <h3>{{items[index].description}}</h3><br><br>
+        <h3>{{items[index].quantity}}</h3><br><br>
+        
+        <b><p>COST: Rs.{{items[index].price}}</p></b><br><br>
+        <input type="number" class="form-control text-center" min="1" max ={{items[index].quantity}} style="width:100px;"  [(ngModel)]="quantity"><br>
+        <button id = "size" (click)="cart(items[index].title,index)">Add To Cart</button>&nbsp;
+        <button id = "size1" type="button" (click)="changeShowStatus()">Reviews</button>
+        <div *ngIf = "showHide" >
+            <form #desForm = "ngForm" >
+            <div class="form-group"><br>
+                <label>Enter your reviews in the comment box:</label>
+                <input type="text" [(ngModel)] = "name1" name="commentor">
+                <textarea class="form-control" [(ngModel)] = "review" rows="5" id="review"  name="review"></textarea>
+              </div>
+              <button type="submit" (click) = "editreviews()" class="btn btn-primary">Submit</button>
+            </form>
+        </div>
+        <div *ngFor = "let i of thisreviews">
+          
+          <h4>Name :{{i.name}}</h4>
+          <h4>Review :{{i.review}}</h4>
+          </div>
+        
+    
+    </div>
+    <div class="back">
+        <a href="mainpage">back</a>
+        
+    </div>
+    
+</div>
+  

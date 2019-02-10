@@ -1,0 +1,42 @@
+<div id = "background" *ngIf=empty>
+  <h1>There are no items in your cart....</h1>
+</div>
+<!-- </div> -->
+
+<div>
+<div *ngFor ="let items of selectedobjects; index as i ">
+  
+    <table>
+        <tr>
+          <th style="width:10%">no</th>
+          <th style="width:40%">product</th> 
+          <th style="width:10%">name</th>
+          <th style="width:22%">price</th>
+          <th style="width:8%">quantity</th>
+          <th style="width:10%"></th>
+        </tr>
+          <tr>
+            <td><h2 >{{i}}</h2></td>
+            
+            <td><img src="../../assets/{{items.image}}"></td>
+            <td><h3>{{items.title}}</h3><br></td> 
+            <td><h3>{{items.price}}</h3></td>
+            <!-- <td><input type="number" class="form-control text-center" min="1" (change)="changing()"  style="width:100px;"  value="1" [(ngModel)]="quantity[i]"></td> -->
+            <td><h3>{{quantity[i].quantity}}</h3></td>
+            <td><button (click)="removing(i)">delete</button></td>
+          </tr>
+        </table>
+    <br><br>
+
+</div>
+<button *ngIf = "checkout()" routerLink = "/checkout">Checkout</button>
+
+
+</div>
+
+    
+
+<b><p *ngIf = "checkout()">  total amount : {{total}}</p></b>
+
+
+<!-- </div> -->
